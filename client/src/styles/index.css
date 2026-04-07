@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  @apply bg-slate-950;
+}
+
+body {
+  @apply min-h-screen bg-slate-950 font-sans text-slate-100 antialiased;
+}
+
+body.light-theme {
+  background:
+    radial-gradient(circle at top left, rgba(20, 184, 166, 0.15), transparent 25%),
+    linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #0f172a;
+}
+
+#root {
+  @apply min-h-screen;
+}
+
+.bg-app-gradient {
+  background:
+    radial-gradient(circle at top left, rgba(20, 184, 166, 0.18), transparent 30%),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 28%),
+    linear-gradient(180deg, #020617 0%, #0f172a 45%, #111827 100%);
+}
+
+.light-theme .bg-app-gradient {
+  background:
+    radial-gradient(circle at top left, rgba(20, 184, 166, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.14), transparent 28%),
+    linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.glass-card {
+  @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+}
+
+.light-theme .glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+.button-primary {
+  @apply inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 px-6 py-3 font-medium text-white shadow-glow transition hover:scale-[1.02] hover:shadow-2xl;
+}
+
+.button-secondary {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 font-medium text-white transition hover:bg-white/10;
+}
+
+.light-theme .button-secondary {
+  color: #0f172a;
+}
+
+.auth-page {
+  @apply flex min-h-screen items-center justify-center bg-app-gradient px-4 py-10;
+}
+
+.auth-card {
+  @apply glass-card w-full max-w-xl rounded-[2rem] p-8 shadow-glow;
+}
+
+.form-field {
+  @apply block;
+}
+
+.form-field span {
+  @apply mb-2 block text-sm text-slate-300;
+}
+
+.light-theme .form-field span {
+  color: #334155;
+}
+
+.form-field input,
+.form-field select {
+  @apply w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-emerald-400/60 focus:bg-white/10;
+}
+
+.light-theme .form-field input,
+.light-theme .form-field select {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+@media (max-width: 768px) {
+  .auth-card {
+    @apply p-6;
+  }
+}
