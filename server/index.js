@@ -5,6 +5,7 @@ const authRoutes = require('./routes/authRoutes');
 const matchRoutes = require('./routes/matchRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const betRoutes = require('./routes/betRoutes');
+const walletRoutes = require('./routes/walletRoutes');
 const settingsRoutes = require('./routes/settingsRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 
@@ -39,6 +40,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/matches', matchRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/bets', betRoutes);
+app.use('/api/wallet', walletRoutes);
 app.use('/api/settings', settingsRoutes);
 app.use('/api/admin', adminRoutes);
 

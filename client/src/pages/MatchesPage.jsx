@@ -25,6 +25,14 @@ export function MatchesPage({ liveOnly = false }) {
   }, [search, category, status]);
 
   const { data, setData, loading } = useFetch(`/matches${query ? `?${query}` : ''}`, {}, [query]);
+  const leagueStats = useMemo(() => {
+    const matches = data?.matches || [];
+    const byLeague = matches.reduce((acc, item) => {
+      acc[item.league] = (acc[item.league] || 0) + 1;
+      return acc;
+    }, {});
+    return Object.entries(byLeague).sort((a, b) => b[1] - a[1]).slice(0, 4);
+  }, [data]);
 
   async function handleFavorite(matchId) {
     const response = await apiRequest(`/matches/${matchId}/favorite`, {
@@ -86,8 +94,19 @@ export function MatchesPage({ liveOnly = false }) {
           {Array.from({ length: 6 }).map((_, index) => <LoadingSkeleton key={index} className="h-72" />)}
         </div>
       ) : (
-        <div className="grid gap-4 lg:grid-cols-3">
-          {data.matches.map((match) => <MatchCard key={match.id} match={match} onFavorite={handleFavorite} onBet={handleBet} />)}
+        <div className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {leagueStats.map(([league, total]) => (
+              <div key={league} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Tournament</p>
+                <p className="mt-2 text-sm font-semibold text-white">{league}</p>
+                <p className="mt-1 text-xs text-emerald-300">{total} matches</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {data.matches.map((match) => <MatchCard key={match.id} match={match} onFavorite={handleFavorite} onBet={handleBet} />)}
+          </div>
         </div>
       )}
     </div>

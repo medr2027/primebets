@@ -101,14 +101,34 @@ function seedUsers() {
 
 function seedMatches() {
   const count = db.prepare('SELECT COUNT(*) AS count FROM matches').get().count;
-  if (count >= 18) return;
+  if (count >= 120) return;
 
   const teams = [
-    'Arsenal', 'Barcelona', 'PSG', 'Bayern', 'Juventus', 'Chelsea', 'Inter',
-    'Milan', 'Liverpool', 'Ajax', 'Dortmund', 'Napoli', 'Benfica', 'Lyon',
-    'Monaco', 'Atletico', 'Roma', 'Leverkusen', 'Marseille', 'Sevilla'
+    'Arsenal', 'Barcelona', 'PSG', 'Bayern', 'Juventus', 'Chelsea', 'Inter', 'Milan',
+    'Liverpool', 'Ajax', 'Dortmund', 'Napoli', 'Benfica', 'Lyon', 'Monaco', 'Atletico',
+    'Roma', 'Leverkusen', 'Marseille', 'Sevilla', 'Manchester City', 'Manchester United',
+    'Real Madrid', 'Tottenham', 'Newcastle', 'Porto', 'Sporting', 'Valencia',
+    'Fenerbahce', 'Galatasaray', 'Al Ahly', 'Wydad', 'Flamengo', 'River Plate',
+    'LA Galaxy', 'Inter Miami', 'Golden State', 'Lakers', 'Celtics', 'Bulls',
+    'Nuggets', 'Heat', 'Warriors', 'Novak Team', 'Rafa Team', 'Alcaraz Team',
   ];
-  const leagues = ['Champions League', 'Premier League', 'La Liga', 'Serie A', 'Europa League'];
+  const leagues = [
+    'Champions League',
+    'Premier League',
+    'La Liga',
+    'Serie A',
+    'Europa League',
+    'Conference League',
+    'Bundesliga',
+    'Ligue 1',
+    'NBA',
+    'EuroLeague',
+    'ATP Masters',
+    'WTA Finals',
+    'Copa Libertadores',
+    'MLS Cup',
+    'Africa Cup',
+  ];
   const categories = ['Football', 'Basketball', 'Tennis'];
   const insertMatch = db.prepare(
     `INSERT INTO matches
@@ -116,7 +136,7 @@ function seedMatches() {
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   );
 
-  for (let index = 0; index < 24; index += 1) {
+  for (let index = count; index < 140; index += 1) {
     let team1 = randomChoice(teams);
     let team2 = randomChoice(teams);
     while (team1 === team2) {
@@ -136,7 +156,7 @@ function seedMatches() {
       randomChoice(categories),
       isLive ? 'live' : 'upcoming',
       isLive,
-      index % 5 === 0 ? 1 : 0
+      index % 7 === 0 ? 1 : 0
     );
   }
 }

@@ -9,6 +9,7 @@ import { ProfilePage } from './pages/ProfilePage';
 import { SettingsPage } from './pages/SettingsPage';
 import { AdminPage } from './pages/AdminPage';
 import { WalletPage } from './pages/WalletPage';
+import { Games3DPage } from './pages/Games3DPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { AppShell } from './components/AppShell';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="my-bets" element={<BetsHistoryPage />} />
           <Route path="history" element={<BetsHistoryPage />} />
           <Route path="wallet" element={<WalletPage />} />
+          <Route path="games-3d" element={<Games3DPage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="settings" element={<SettingsPage />} />
           <Route path="admin" element={<AdminPage />} />

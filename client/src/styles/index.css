@@ -56,12 +56,47 @@ body.light-theme {
   @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 font-medium text-white transition hover:bg-white/10;
 }
 
+.control-chip {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-slate-100 transition hover:-translate-y-[1px] hover:bg-white/20;
+}
+
+.control-chip select {
+  @apply cursor-pointer bg-transparent text-sm text-slate-100 outline-none;
+}
+
+.control-chip option {
+  color: #0f172a;
+}
+
 .light-theme .button-secondary {
+  color: #0f172a;
+}
+
+.light-theme .control-chip {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.light-theme .control-chip select {
   color: #0f172a;
 }
 
 .auth-page {
   @apply flex min-h-screen items-center justify-center bg-app-gradient px-4 py-10;
+}
+
+.fx-mesh {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(34, 211, 238, 0.2), transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(244, 63, 94, 0.2), transparent 30%),
+    radial-gradient(circle at 50% 85%, rgba(16, 185, 129, 0.16), transparent 32%);
+}
+
+.fx-glow {
+  box-shadow:
+    0 16px 40px rgba(14, 165, 233, 0.18),
+    0 20px 70px rgba(236, 72, 153, 0.14);
 }
 
 .auth-card {

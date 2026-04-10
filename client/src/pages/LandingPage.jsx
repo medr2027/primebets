@@ -44,10 +44,11 @@ export function LandingPage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link className="button-secondary" to="/login">Access Demo Account</Link>
+              <Link className="button-secondary" to="/app/games-3d">View 3D Games</Link>
             </div>
           </div>
 
-          <div className="glass-card relative overflow-hidden rounded-[2rem] p-6 shadow-glow">
+          <div className="glass-card fx-mesh fx-glow relative overflow-hidden rounded-[2rem] p-6 shadow-glow">
             <div className="absolute -right-8 -top-8 h-36 w-36 rounded-full bg-emerald-500/20 blur-3xl" />
             <div className="absolute -bottom-8 -left-8 h-36 w-36 rounded-full bg-cyan-500/20 blur-3xl" />
             <div className="relative space-y-4">
